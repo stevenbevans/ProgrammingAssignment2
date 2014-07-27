@@ -23,7 +23,7 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## Get the the cached matrix or create it if it does not exist
+## Get the  cached matrix or create a new one if it does not exist
 ## sample usage a <- makeCacheMatrix(matrix(c(1,2,3,4), nrow=2, ncol=2)) 
 ## cacheSolve(a)
 
@@ -36,11 +36,11 @@ cacheSolve <- function(x, ...) {
         return(cachem)
     }
     data <- x$get()
-    cachem <- solve(data, ...)
+  ## Calculate the inverse matrix
+    cachem <- solve( data , ...)  
     x$setInverse(cachem)
-    cachem 
-    
   ## Return a matrix that is the inverse of 'x'
+  cachem  
 }
 
 ## Used for testing
